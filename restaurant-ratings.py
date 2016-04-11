@@ -12,12 +12,16 @@ def print_restaurant_ratings(filename):
         # iterates through each line and splits at colon then inputs it into dict
         
         for line in in_file: 
-            # ["Restaurant Name", score]
+            # gets rid of newline character at end of line
+            line = line.rstrip()
+            # makes a list from file line: ["Restaurant Name", score]
             restaurant_and_rating = line.split(":")
-            restaurants.append( (restaurant_and_rating[0], restaurant_and_rating[1][0]) )
+            # adds a tuple of name and rating to a list of all restaurants
+            restaurants.append((restaurant_and_rating[0], restaurant_and_rating[1]))
         
+        # sorts list alphabetically
         restaurants = sorted(restaurants)
-        
+        # prints each tuple of name and rating on a new line
         for item in restaurants:
             print item[0], "has a rating of:", item[1]
 
